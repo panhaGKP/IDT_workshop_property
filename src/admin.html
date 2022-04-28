@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="webfont_css/all.min.css" />
+    <title>Admin Properties</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+  </head>
+  <body class="bg-gray-200">
+    <div class="flex">
+      <!-- side bar -->
+      <div class="bg-green-900 w-72 h-screen">
+        <div class="bg-green-700">
+          <a
+            href="#"
+            class="text-xl font-bold uppercase text-gray-200 p-5 inline-block"
+            >Real Properties Admin</a
+          >
+        </div>
+        <div>
+          <span class="text-gray-200 text-xs font-bold p-5 inline-block"
+            >PAGES</span
+          >
+        </div>
+        <div class="text-gray-200 m-5 flex items-center">
+          <div class="">
+            <i class="fa-solid fa-gauge text-xl"></i>
+          </div>
+          <div class="text-sm ml-3">Dashboard</div>
+        </div>
+        <div class="text-gray-200 m-5 flex items-center">
+          <div class="">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <div class="text-sm ml-3">Customer</div>
+        </div>
+        <div class="text-gray-200 m-5 flex items-center">
+          <div class="">
+            <i class="fa-solid fa-cart-plus"></i>
+          </div>
+          <div class="text-sm ml-3">Dashboard</div>
+        </div>
+        <div class="text-gray-200 m-5 flex items-center">
+          <div class="">
+            <i class="fa-solid fa-gauge text-xl"></i>
+          </div>
+          <div class="text-sm ml-3">Dashboard</div>
+        </div>
+        <a href="#" class="text-gray-200 m-5 flex items-center">
+          <div class="">
+            <i class="fa-solid fa-gauge text-xl"></i>
+          </div>
+          <div class="text-sm ml-3">Dashboard</div>
+        </a>
+      </div>
+      <!-- side bar -->
+      <!-- main section -->
+      <div class="flex-1">
+        <div>
+          <!-- top nav -->
+          <div class="flex bg-white items-center">
+            <!-- left -->
+            <div class="flex w-3/4">
+              <img
+                src="images/panha.jpg"
+                alt="profile"
+                class="h-12 w-12 rounded-full"
+              />
+              <span class="block p-2">Panha</span>
+            </div>
+            <!-- left -->
+            <!-- right -->
+            <div class="flex space-x-3">
+              <div
+                class="bg-gray-200 text-xl h-8 w-8 rounded-full flex justify-center items-center"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div
+                class="bg-gray-200 text-xl h-8 w-8 rounded-full flex justify-center items-center"
+              >
+                <i class="fa-solid fa-envelope-open"></i>
+              </div>
+              <div
+                class="bg-gray-200 text-xl h-8 w-8 rounded-full flex justify-center items-center"
+              >
+                <i class="fa-solid fa-triangle-exclamation"></i>
+              </div>
+              <div
+                class="bg-gray-200 text-xl h-8 w-8 rounded-full flex justify-center items-center"
+              >
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              </div>
+            </div>
+            <!-- right -->
+          </div>
+          <!-- top nav -->
+          <!-- banner -->
+          <div class="bg-green-200 m-7 p-7">
+            <div class="text-4xl font-medium text-gray-900">
+              Good morning, admin.😘
+            </div>
+            <div class="mt-4">These are the start from today.</div>
+          </div>
+          <!-- banner -->
+          <!-- card section -->
+          <div class="m-7 flex space-x-3">
+            <!-- card -->
+            <div class="bg-white p-4 w-1/2">
+              <div>
+                <i
+                  class="fa-solid fa-money-bill-wave text-4xl text-amber-500"
+                ></i>
+              </div>
+              <div class="font-bold text-gray-600 text-xl">Super plus</div>
+              <div class="uppercase my-3 font-bold text-sm text-gray-400">
+                Sales
+              </div>
+              <span class="font-bold text-3xl">$ 24,000</span>
+              <span
+                class="bg-green-800 text-white px-3 py-1 rounded-full text-xs font-semibold align-text-top"
+                >+58%</span
+              >
+              <canvas id="chart1"></canvas>
+            </div>
+            <!-- card -->
+            <!-- card -->
+            <div class="bg-white p-4 w-1/2">
+              <div>
+                <i
+                  class="fa-solid fa-money-bill-wave text-4xl text-amber-500"
+                ></i>
+              </div>
+              <div class="font-bold text-gray-600 text-xl">Super plus</div>
+              <div class="uppercase my-3 font-bold text-sm text-gray-400">
+                Sales
+              </div>
+              <span class="font-bold text-3xl">$ 4,000</span>
+              <span
+                class="bg-red-800 text-white px-3 py-1 rounded-full text-xs font-semibold align-text-top"
+                >-8%</span
+              >
+              <canvas id="chart2"></canvas>
+            </div>
+            <!-- card -->
+          </div>
+          <!-- card section -->
+        </div>
+      </div>
+      <!-- main section -->
+    </div>
+    <script>
+      const ctx1 = document.getElementById("chart1").getContext("2d");
+      const ctx2 = document.getElementById("chart2").getContext("2d");
+
+      const myChart1 = new Chart(ctx1, {
+        type: "line",
+        data: {
+          labels: ["January", "Februry", "March", "April", "May", "June"],
+          datasets: [
+            {
+              label: "Sale",
+              data: [8.5, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      const myChart2 = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: ["January", "Februry", "March", "April", "May", "June"],
+          datasets: [
+            {
+              label: "Sale",
+              data: [8.5, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
